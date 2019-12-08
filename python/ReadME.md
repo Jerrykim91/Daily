@@ -1,0 +1,8 @@
+ - 2019.12.08 
+    - First commit 
+    - Start to python
+        - Dict : DL / ML / Grammar and Basics
+    - Rull 
+        - Number 1 : Do not cheat But Allow .md( markdown_file) instead.
+        - Number 2 : Every single day Record on monthly markdown _ what did you do every single day?
+        - Number 3 : when you record on monthly markdown, Let's write in English! Yeah Just do it. Don't be afraid! 
