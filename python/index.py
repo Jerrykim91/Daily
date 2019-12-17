@@ -12,7 +12,7 @@ for i in range(10):
         print(k,'x',j,'=',k*j)
         # print('---')
         # print(k*j)
-   # print('--------')
+   # print('-'*10)
 print('--DONE--')
 
 #----------------------------------------
