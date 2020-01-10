@@ -1,7 +1,8 @@
 # Python( 파이썬 )     
 
     - 융통성이 있는 언어      
-    - 동적 타입 변화      
+    - 동적 타입 변화    
+      
 ### 파이썬을 실행시키는 3가지      
 
     - 1. 명령 프롬프트 -> python.exe 실행      
@@ -31,12 +32,12 @@
     \*\* 컴퓨터가 처리하는 데이터는 램위에 올라가 있는 데이터      
     
 - 기본 자료형      
-    - 수치 자료형      
+    - **수치 자료형(정수, 실수)**      
         - 정수 : lnteger ( data = 1 )     
         - 실수 : float ( data = 9.0 )     
-    - 문자형      
+    - **문자형**      
         - String : ( data = 'ME?' ),(  data = "OR ME? " )    
-    - 논리 / 불린 자료형( 첫 글자는 대문자 T/F )    
+    - **논리 / 불린 자료형( 첫 글자는 대문자 T/F )**    
         - Boolean : Ture , False ( data = True)    
 
 - 연산자 그리고 피연산자    
@@ -46,10 +47,22 @@
     - 수식에서 연산자의 역활과 순서는 수학에서 연산자와 동일     
     - 문자간 연산도 가능     
     
--     
+## 내가 가장 헷갈리는거 
+- indexing & slicing (문자열 index 추출)     
+    - index    : 한가지 문자만 -> 명시한 문자만     
+                - 문자열의 각 문자는 순서가 있음      
+                => a[0]  => '숫자'만 넣을 경우 => 이 숫자는 문자열의 인덱스 넘버를 말함 
+                => 앞에서부터 순차적으로 나열되어 있음      
+
+        > a 라는  a = 'hellow word' 문자열에서 요청한 그문자만 콕 찝어서 명시한 아이만 출력      
+
+    ㄴ slicing : 문자열에서 사용자가 명시한부분만 부분적으로 잘라온다.  => [ 시작 : 끝 ]     
+                => 시작과 끝을 명시해서 그사이의 값을 가지고 옴     
+
     
     
-    
-자료      
-[http://byteofpython-korean.sourceforge.net/byte_of_python.html]
-[https://www.codecademy.com/]
+<hr />
+< 참고 자료 >      
+    1. [fastcampus](www.fastcampus.co.kr)    
+    2. [A Byte of Python](http://byteofpython-korean.sourceforge.net/byte_of_python.html)    
+    3. [codecademy](https://www.codecademy.com/)    
