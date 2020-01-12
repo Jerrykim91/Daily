@@ -542,7 +542,6 @@ condition_s = True
 condition_m = True
 condition_l = True
 
-
 if condition_s :
     print('조건1') # True
 elif condition_m:
@@ -591,20 +590,59 @@ for i in [11,22,33,44,55,66] :
     print(i)
 print('='*30)
 
-# 112페이지 부터 
-# 딕셔너리를 이용한 반복문 
+# 딕셔너리를 이용한 반복문
+var = {"key1":"varl1","key2":"varl2","key3":"varl3"}
+
+for key in var :
+    print(key)
+    print(var[key])
 
 print('='*30)
 
 # for문을 이용한 간단한 프로그램(구구단)
-
+for i in range(2,5):
+    for j in range(2,5):
+        print('%d x %d = %d'%(i,j,i*j))
 print('='*30)
 
 # 문자열 빈도수 출력(중요)
+BTS = """
+According to the Gaon Music Chart, BTS has sold sixteen million albums domestically 
+in physical sales and is the best-selling artist to debut in the 2010s.
+They hold the best-selling album in Korean history with Map of the Soul: Persona. 
+BTS were the second best-selling artists of 2018 worldwide according to the IFPI's Global Artist Chart, 
+as well as the only non-English speaking artist to enter the chart. 
+The group has won Top Social Artist three years in a row and Top Duo/Group at the 26th Billboard Music Awards. 
+Featured on Time's international cover as "Next Generation Leaders", 
+BTS has appeared in the magazine's 25 most influential people 
+on the internet (2017–2019) and Time's 100 most influential people in the world (2019). 
+Forbes Korea named BTS the most influential celebrities of Korea in 2018, 
+and BTS ranked 43rd in the Forbes Celebrity 100 (2019) as one of the world's top-earning celebrities. 
+BTS are ranked #4 of Billboard's Top Social Artist of the 2010s, and are the highest group on the list. 
+During their Love Yourself World Tour, 
+BTS became the first Asian and first non-English speaking act to headline and sell out Wembley Stadium; 
+and broke the record for the single highest-grossing engagement in Rose Bowl Stadium history. 
+Billboard ranked BTS at #45 on their Top Touring Artists of the 2010s list, 
+being the highest-ranked Asian as well as the only non-English speaking act on the list. 
+As of 2019, BTS are purportedly worth more than $4.65 billion 
+to South Korea's economy each year, or 0.3 percent of the country's GDP. 
+BTS attracted one in every 13 foreign tourists that visited 
+South Korea and were cited as one of the key acts boosting global music sales to $19 billion in 2018.
+"""
+print('='*30)
+# 정형식을 이용하면 더욱 간단하게 해결 가능
+str_freq = BTS.replace(',','').replace('\n','').replace('.','').split(' ')
 
+char_frequency = {}
+
+for char in str_freq:
+    char_frequency.setdefault(char, 0)
+    char_frequency[char] += 1
+print(char_frequency)
+
+# split()는 띄워쓰기 단위로 아누어 단어 리스트를 생성
+# 리스트를 이용하여 반복문을 돌린후 
+# setdefault() 이용해서 char_frequency에 해당단어가 없다면 단어를 키로 0의 값을 만듬
+# 그리고 +1 증가시켜줌 만약 키가있다면 0으로 바뀌지않고 1 증가 됨 
 print('='*30)
 
-
-
-
-print('='*30)
