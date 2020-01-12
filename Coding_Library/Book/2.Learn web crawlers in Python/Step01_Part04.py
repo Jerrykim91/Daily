@@ -250,4 +250,361 @@ b = '.'.join(a)
 print(b)
 print('='*30)
 
-# 88page
+# 중첩된 리스트 
+a = [1,2,3,4,5,[6,7,8,9]]
+
+print(a)
+print(a[3])
+print(a[5][1])
+print(a[5][2])
+print(a[-2])
+
+print(a[-1]) # [-1] = [6,7,8,9]
+print(a[-1][0]) # [-1] 중에 처음꺼 => 6
+#print(a[-2][0]) => 에러 
+
+print('='*30)
+
+# 리스트 연산 
+# 리스트도 연산을 제한적으로 사용가능하다 
+
+var1 = [1,2,3,4,5]
+var2 = [6,7,8,9,10]
+num = 3
+# 리스트 * 숫자형 : 리스트 반복하기 
+print(var1*num)
+# 리스트 + 리스트 : 리스트 합치기 
+print(var1+var2)
+print('='*30)
+
+
+# 리스트 수정, 삭제 
+# 인덱싱과 슬라이싱을 이용해서 리스트를 수정 또는 삭제 할수 있음 
+
+# 인덱싱을 이용해 리스트 수정 
+var1 = [1,2,3,4,5]
+print('수정 전  >>>',var1)
+var1[2] = 10
+print('수정 후1 >>>',var1)
+var1[3] = [11,22,33]
+print('수정 후2 >>>',var1)
+print('='*30)
+
+# 슬라이싱을 이용해 리스트 수정 
+var1 = [1,2,3,4,5]
+var2 = [1,2,3,4,5]
+print('수정 전  >>>',var1)
+var1[2:4] = [0,-1]
+print('수정 후1 >>>',var1)
+var2[2:4] = [0,-1,-2]
+print('수정 후2 >>>',var2)
+print('='*30)
+
+
+# 리스트 요소 삭제 
+# 두가지 1. 인덱스=> del 2. 슬라이싱=> [](해당범위를 삭제)
+var1 = [1,2,3,4,5]
+var2 = [1,2,3,4,5]
+
+del var1[1]
+var2[0:3] = []
+print('수정 후1 >>>',var1)
+print('수정 후2 >>>',var2)
+print('='*30)
+
+
+# 리스트 요소 추가하기 
+var = [1,2,3,4,5]
+var.append(10)
+print(var)
+# append()는 마지막에 요소를 추가 
+var.append(20)
+print(var)
+print('='*30)
+
+
+# 리스트 요소 제거 - 1 
+var = [1,2,3,4,5]
+print(var.pop())
+print(var)
+
+# 리스트 요소 제거 - 2 
+var = [1,2,3,4,5, 1,2,3,4,5]
+print(var.remove(4)) # None : pop()와 다르게 제거된 값을 변환시켜주지 않았기때문 
+print(var) # 요소에서 4만 제거 
+print('='*30)
+
+# 리스트 정렬 - 1 
+var = [3,5,4,1,2,6,9,7,8]
+var.sort()
+print(var)
+var.sort(reverse=True)
+print(var)
+print('='*30)
+
+# 리스트 정렬 - 2 
+var = ['a','d','c','b']
+var.sort()
+print(var)
+var.sort(reverse=True)
+print(var)
+print('='*30)
+
+# 리스트 정렬 - 3 
+# 대문자 우선 정렬 
+var = ['A','d','c','b']
+var.sort()
+print(var)
+var.sort(reverse=True)
+print(var)
+print('='*30)
+
+# 리스트 정렬 - 4
+var = [ 75,'d','A',99,100]
+#print(var.sort()) # 타입에러 발생 => 하나의 타입으로 통일 필요 
+print('='*30)
+
+# 리스트 길이 
+var = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+print(len(var))
+print('='*30)
+
+# 딕셔너리 => 중괄호로 감싸서 표현  => 키와 값의 형태로 데이터를 저장 
+# 키로 접근할때는 리스트처럼 대괄호가 아닌 키값을 이용해 접근  
+# => 존재하지 않는 키에 접근하면 에러 발생 
+var1 = dict({"key1":"vark1","key2":"vark2"})
+var2 = {"key1":"vark1","key2":"vark2"}
+print(var1)
+print(var2)
+print(var1["key1"])
+print(var2["key2"])
+print('='*30)
+
+# 딕셔너리에 키 추가하기 => get()함수 이용
+var = {"key1":"varl1"}
+print(var.get('key1'))
+print(var.get('key1','default value'))
+print(var.get('key2')) # 키는 있지만 값은 없어서 None
+print(var.get('key2','default value'))
+print('='*30)
+
+# 키(key) - 값(value) 생성 
+# 딕셔너리도 리스트처럼 데이터를 추가 
+var = {}
+print(var)
+var["key1"] = 10
+print(var)
+var["key1"] = 20
+var["key2"] = 30
+print(var)
+print('='*30)
+
+# 키(key) - 값(value) 생성 - 2 
+# setdefault() 함수 사용 
+var = {}
+print(var)
+var.setdefault('key1',10)
+print(var)
+var.setdefault('key1',20)
+var.setdefault('key2',30)
+print(var)
+print('='*30)
+
+
+# key 리스트 만들기
+var2 = {"key1":"vark1","key2":"vark2","key3":"vark3"}
+print(var2.keys())
+# value 리스트 만들기 
+print(var2.values())
+# 페어로 리스트 만들기 
+print(var2.items())
+
+print('='*30)
+
+# items()함수를 이용하면 (키,값)의 형태로 리스트처럼 만들어 줌 
+# => 튜플이라고 하는 자료형태에 담겨서 출력
+# keys(),values(),items() 는 리스트가 아님 => 인덱싱이나 슬라이싱은 불가능 
+# 하지만 반복문은 돌릴수 있고 이를 이터레이터라고 표현 
+# 만약 list()로 타입을 변경한다면 인덱싱이나 슬라이싱 가능 
+
+# 딕셔너리 함수로 만든 리스트 인덱싱 -1
+var2 = {"key1":"vark1","key2":"vark2","key3":"vark3"}
+values = var2.values()
+print(values)
+# print(values[0]) #  타입에러 발생 => 리스트가 아니라서 
+
+# 딕셔너리 함수로 만든 리스트 인덱싱 -2 (형변환해서 출력)
+values = list(var2.values())
+print(values)
+print(values[0])
+
+
+# 키 존재 유무 검사 
+# 키 확인 
+var2 = {"key1":"vark1","key2":"vark2","key3":"vark3"}
+print('keys' in var2)
+print('hi' in var2)
+#[키 in 딕셔너리 변수]의 형태로 코드를 작성 
+# => 존재하면 참 아니면 거짓을 반환
+print('='*30)
+
+# 튜플 
+# 리스트와 흡사하지만 []가 아닌 ()를 사용
+# 튜플은 수정하거나 삭제 할수 없음 => 변경의 제약 
+var1 = tuple((1,))
+var2 = tuple((1,2,3))
+var3 = (1,)
+var4 = (1,2,3)
+print(var1)
+print(var2)
+print(var3)
+print(var4)
+print('='*30)
+
+# 튜플생성
+var1 = (1)
+# 튜플생성시 요소가 하나일 경우 반드시 콤마를 붙여 줘야한다. 
+# 붙이지 않으면 튜플이 아닌 정수나 문자열로 출력 !  
+print(var1)
+print('='*30)
+
+# 튜플은 변경 삭제가 불가능하다 
+# 튜플 - 인덱싱 
+var = (1,2,3,4,5)
+print(var[3])
+# 튜플 - 슬라이싱
+print(var[2:])
+print('='*30)
+
+# 연산 + , * 
+var1 = (1,2,3)
+var2 = (4,5)
+print(var1)
+print(var2)
+print(var1+ var2)
+print(var1*3)
+print(var2*3)
+print('='*30)
+
+# 사칙 연산자
+var1 =  1
+var2 =  5
+var1 += var2
+print(var1)
+print('='*30)
+
+# 비교연산자 
+print('False and False =', False and False)
+print('False and True = ', False and True)
+print('True and False =', True and False)
+print('True and True =', True and True)
+# 각각을 비교하기때문에  True and True 연산 
+print(1 < 2 and 2 > 1)
+# ()로 구분해서 좀 더 명확하게 확인 
+print((1 > 2) and (2 > 1))
+print('='*30)
+
+# OR 연산
+print('False or False =', False or False)
+print('False or True =', False or True)
+print('True or False =', True or False)
+print('True or True =', True or True)
+print(1 < 2 or 2 > 1)
+print((1 > 2) or (2 > 1))
+print('='*30)
+
+# NOT 연산 
+print(not False)
+print(not True)
+print(not 1)
+print(not 2)
+print(not 2 > 1)
+print(not 1 > 2)
+print('='*30)
+
+
+# 조건 분기 if 문 
+condition_good = True
+condition_NG = False
+
+if condition_good :
+    print('hi')
+    print('it works')
+if condition_NG : 
+    print('HI')
+    print("it doesn't work")
+
+print('Read all')
+print('='*30)
+
+# 조건 응용 분기 if ~ else
+condition_s = True
+condition_m = True
+condition_l = True
+
+
+if condition_s :
+    print('조건1') # True
+elif condition_m:
+    print('조건2') # 이 아이만 True 일때
+
+elif condition_l:
+    print('조건3') # 이 아이만 True 일때
+
+else:
+    print('조건4') # 전부 False 일때 출력
+print('='*30)
+
+
+# 포함 여부에 따른 조건 분기 
+if 'h' in 'hellow world':
+    print('hellow world에 h가 포함 되어있습니다')
+if 1 in [11,22,33,44,55,66]:
+    print('[11,22,33,44,55,66]에 1이 포함 되어있습니다')
+print('='*30)
+
+# 반복문 
+# while문을 이용한 반복문 
+count = 0 
+while count < 5 :
+    print('%d 번째' %(count))
+    count += 1 #  이거 안적어주면 무한루프에 빠짐 
+print('='*30)
+
+# for 문을 이용한 반복문 
+# 2가지 방법으로 만들수있음 
+# 1. range()를 이용해서 만듬 
+# => 첫번째 인자부터 -1까지 반복 range(0,10) =>0 to 9까지
+# 2. 라스트, 문자열과 같은 데이터 타입으로 반복문을 만들수 있음 
+
+for i in range(0,5):
+    print('%d  번째'%(i))
+print('='*30)
+
+# 문자열을 이용한 반복문 
+for i in 'hello world':
+    print(i)
+print('='*30)
+   
+# 리스트를 이용한 반복문  
+for i in [11,22,33,44,55,66] : 
+    print(i)
+print('='*30)
+
+# 112페이지 부터 
+# 딕셔너리를 이용한 반복문 
+
+print('='*30)
+
+# for문을 이용한 간단한 프로그램(구구단)
+
+print('='*30)
+
+# 문자열 빈도수 출력(중요)
+
+print('='*30)
+
+
+
+
+print('='*30)
