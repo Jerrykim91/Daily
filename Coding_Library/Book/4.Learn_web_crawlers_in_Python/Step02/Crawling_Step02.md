@@ -14,18 +14,35 @@
 웹을 요청하는 라이브러리는 크게 두가지      
 - requests & urllib     
 - 사용 빈도는  urllib보다 requests!!      
-
-#### 실습은 Part06_01.py으로 이동      
+  
+### requests 모듈
 requests 모듈은 파이썬에서 가장 많이 하는 모듈       
+
 ```bash
 # requests 모듈 설치 
 $ pip install requests
 # requests 사용 
 import requests
 ```
-#### 실습 Part06_01 -1 
+---
+#### 실습 Part06_01
+- requests 요청 후 응답 객체를 반환 => print(응답코드) => 확인가능     
+#### 실습 Part06_02   
+- requests GET과 POST로 요청을 보낼수 있음      
+   - GET을 보낼 때 => requests.get()     
+   - POST로 보낼 때 => requests.post()    
+#### 실습 Part06_03        
+---
+- 응답 객체 => response 객체는 다양한 정보를 가지고 있음     
+- 응답 코드 => 응답 객체에서 응답 코드를 가지고 옴     
+#### 실습 Part06_04     
+#### 실습 Part06_05  
+- 존재하지 않는 URL에 접속하여 해당 페이지에 접속이 불가능할 때 반환하는 코드 => 404      
+#### 실습 Part06_06  
+- 응답 코드에 따라 조건을 나누어 처리 가능 => 조건분기로
+---
 
-
+---
 
 ---    
 ## 파싱모듈    
