@@ -12,6 +12,6 @@ url = "https://blog.naver.com/pjt3591oo"
 res = rq.get(url)
 
 print(res)
-print(res.status_code)
+print(res.headers)
 
 # 응답 객체에서 에더를 딕셔너리 형태로 가지고 옴 
