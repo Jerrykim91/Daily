@@ -19,3 +19,8 @@
 - Source of coding study will be public         
 - 파이썬으로 배우는 웹 크롤러        
   - [파이썬으로 배우는 웹 크롤러 도서](https://book.naver.com/bookdb/book_detail.nhn?bid=13141192)         
+
+
+
+### 예외 
+- https://github.com/easysIT/doit_pandas
