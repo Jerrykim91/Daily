@@ -24,6 +24,11 @@ print('Count : %s' % len(number), number)
 """
 # print(history_log)
 
+
+
+def step_num():
+    pass
+
 def random_num(x):
     
     import random 
