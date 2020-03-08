@@ -31,6 +31,89 @@ print('-'*40)
 print(sl_ice[1:1]) # [] 비어있는것이 출력 1부터 0까지 잘라서 새로운 인덱스를 생성 => 그게 빈 인덱스 위 예제도 같은 이치 
 print(sl_ice[:10:-1]) 
 print(sl_ice[2:3]) # [20]
+print('-'*40)
 
 
-# pages 140p
+# 리스트 중간부분 가져오기
+# print(sl_ice)      # [0, 10, 20, 30, 40, 50, 60, 70, 80, 90] 
+
+print(sl_ice[4:7]) # 4부터 6까지 
+print(sl_ice[4:-1]) # -1은 뒤에서 첫번째 요소 
+print('-'*40)
+
+
+# 인덱스 증가폭 
+"""
+인덱스를 건너 뛰면서 요소를 출력 
+주의) 인덱스의 증가 폭이지 요소의 증가폭은 아님
+
+"""
+# 시퀸즈 객체[: 끝인덱스]
+print(sl_ice[:6])
+# 시퀸즈 객체[시작 인덱스 :]
+print(sl_ice[4:])
+print('-'*40)
+
+# 시퀸즈 객체[:]  # 데이터 리스트 전체를 출력 
+print(sl_ice[:])
+print('-'*40)
+
+# 인덱스를 생략하면서 증가폭 사용하기
+# 시퀸즈객체[:끝인덱스: 증가폭]
+print(sl_ice[:7:2])
+print('-'*40)
+
+# 시퀸즈객체[시작인덱스:: 증가폭]
+print(sl_ice[4::2])
+print('-'*40)
+
+# 시퀸즈객체[:: 증가폭]
+print(sl_ice[::2])
+print('-'*40)
+
+# 리스트 전체를 가져옴 
+# 시퀸즈객체[::]  = 시퀸즈객체[:]동일 
+print(sl_ice[::])
+print('-'*40)
+
+## 슬라이싱의 인덱스 증가폭을 음수로 지정하면 
+print(sl_ice[::-1])
+# 요소를 뒤에서부터 가지고 올 수 있음 
+print('-'*40)
+
+# len()응용하기 
+# 리스트 전체 가지고 오기 
+# = print(sl_ice[0:len(sl_ice)])
+print(sl_ice[:len(sl_ice)]) # 길이 값을 모를때, 애매할떄 len() 이용하면 좋겠네
+print('-'*40)
+
+# 튜플, range(), 문자열에 슬라이스 위 인텍스 방법과 동일 => 생략 
+
+
+# slice 객체 사용하기
+"""
+슬라이스 객체 = slice(end)
+슬라이스 객체 = slice(start, end)
+슬라이스 객체 = slice(start, end , step)
+시퀸즈 객체[슬라이스 객체]
+
+시퀸즈 객체.__getitem__(슬라이스 객체)
+"""
+test = range(10)[slice(4,7,2)]
+print(test) 
+
+test_01 = range(10).__getitem__(slice(4,7,2))
+print(test_01) 
+print('-'*40)
+
+# 슬라이스 객체를 하나 만든다음 여러 시퀸즈 사용 
+tmp = slice(4,7)
+print(sl_ice[tmp])
+
+r = range(10)
+print(r[tmp])
+print('-'*40)
+
+
+
+# pages 150p
