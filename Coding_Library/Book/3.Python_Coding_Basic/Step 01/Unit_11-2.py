@@ -114,6 +114,11 @@ r = range(10)
 print(r[tmp])
 print('-'*40)
 
+# 슬라이스에 요소 할당하기 
+tmp_sl = sl_ice[tmp]
+tmp_sl[2:3] = ['a','c']
+print(tmp_sl)
 
-
-# pages 150p
+# 슬라이스에 요소 삭제하기 
+del tmp_sl[2:3]
+print(tmp_sl)
