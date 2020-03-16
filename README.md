@@ -1,6 +1,10 @@
 # Daily
 ### JUST DO IT RIGHT NOW
 
+---
+### Coding_Library move - Private Repository
+---
+
 - **Add Commit Rull** (2019.12.18~)
 
     - First 
@@ -14,3 +18,4 @@
 
 
 
+---
