@@ -6,27 +6,7 @@
 # 1. 학점 계산 방식 (만점 4.5인지 4.3인지)
 # 
 # 먼저 함수화는 나중에 먼저 코드부터 구조 잡을것 
-
-# Step00. 사용자에게 값을 입력 받아야 한다 -> input() 사용
-# 과목, 점수, 취득학점
-User_input_name   = input('과 목 명 :')
-User_input_score  = input('점    수 :')
-User_input_grader = input('취득학점 :')
-
-# 만점이 몇점인지 묻는다
-
-Grader_calculate = input('몇점 만점인가요?')
-# print(type(Grader_calculate)) # str
-# 다중 조건문을 사용
-if Grader_calculate == str(4.5):
-    print(str(4.5))
-    pass
-
-elif Grader_calculate == str(4.3):
-    print(str(4.3))
-
-    pass 
-
+# 변수 
 score_case1 = {
     'A+' : '4.5',
     'A'  : '4.0',
@@ -39,7 +19,48 @@ score_case1 = {
     'C-' : 'X',
     'F'  : '0'  }
 
-print(score_case1)    
+
+# Step00. 사용자에게 값을 입력 받아야 한다 -> input() 사용
+# # 과목, 점수, 취득학점
+# User_input_name   = input('과 목 명 :')
+User_input_score  = input('점    수 :')
+# User_input_grader = input('취득학점 :')
+
+# 만점이 몇점인지 묻는다
+
+log_txt = {
+    'txt_grader':'몇점 만점인가요? \n 1. 4.5점 \n 2. 4.3점 \n 입력해 :',
+        } 
+
+# print(log_txt['txt_grader'])
+Grader_calculate = input(log_txt['txt_grader'])
+# print(type(Grader_calculate)) # str
+f_loop = [gdr for gdr in score_case1 ]
+# print(f_loop) # ['A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'F']
+# print(f_loop[0])
+
+# 다중 조건문을 사용
+if Grader_calculate == '1':
+    print(str(4.5)+'점 get')
+    for i in range(len(f_loop)):
+        if User_input_score == f_loop[i]:
+            # 학점 , score
+            print(f_loop[i], score_case1[f_loop[i]])
+
+        # pass
+        # return 0
+
+elif Grader_calculate == '2':
+    print(str(4.3)+'점 get')
+    for j in range(len(f_loop)):
+        if User_input_score == f_loop[j]:
+            # 학점 , score
+            print(f_loop[j], score_case1[f_loop[j]])
+
+    pass 
+
+
+# print(score_case1)    
 # 점수 - 소수
 # 4.5 만점
     # A+ - 4.5점
@@ -65,7 +86,7 @@ score_case2 = {
     'C-' : '1.7',
     'F'  : '0'  }
 
-print(score_case2)
+# print(score_case2)
 
 # 4.3 만점
 #     A+ - 4.3점
