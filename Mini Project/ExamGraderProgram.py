@@ -19,6 +19,18 @@ score_case1 = {
     'C-' : 'X',
     'F'  : '0'  }
 
+score_case2 = {
+    'A+' : '4.3',
+    'A'  : '4.0',
+    'A-' : '3.7',
+    'B+' : '3.5',
+    'B'  : '3.0',
+    'B-' : '2.7', 
+    'C+' : '2.5',
+    'C'  : '2.0',
+    'C-' : '1.7',
+    'F'  : '0'  }
+
 
 # Step00. 사용자에게 값을 입력 받아야 한다 -> input() 사용
 # # 과목, 점수, 취득학점
@@ -39,25 +51,41 @@ f_loop = [gdr for gdr in score_case1 ]
 # print(f_loop) # ['A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'F']
 # print(f_loop[0])
 
+# 재귀함수  
+def func_loof(case):
+    f_loop = [gdr for gdr in case ]
+    for num in range(len(f_loop)):
+        if User_input_score == f_loop[num]:
+            # 학점 , score
+            print(f_loop[num], case[f_loop[num]])
+
+    return f_loop[num], case[f_loop[num]]
+
+# func_loof(score_case1)C
+
 # 다중 조건문을 사용
 if Grader_calculate == '1':
-    print(str(4.5)+'점 get')
-    for i in range(len(f_loop)):
-        if User_input_score == f_loop[i]:
-            # 학점 , score
-            print(f_loop[i], score_case1[f_loop[i]])
+    print('='*50,'\n',str(4.5)+'점 get')
+    func_loof(score_case1 )
+    # for i in range(len(f_loop)):
+    #     if User_input_score == f_loop[i]:
+    #         # 학점 , score
+    #         print(f_loop[i], score_case1[f_loop[i]])
 
         # pass
         # return 0
 
 elif Grader_calculate == '2':
-    print(str(4.3)+'점 get')
-    for j in range(len(f_loop)):
-        if User_input_score == f_loop[j]:
-            # 학점 , score
-            print(f_loop[j], score_case1[f_loop[j]])
+    print('='*50,'\n',str(4.3)+'점 get')
+    func_loof(score_case2 )
+    # for j in range(len(f_loop)):
+    #     if User_input_score == f_loop[j]:
+    #         # 학점 , score
+    #         print(f_loop[j], score_case1[f_loop[j]])
 
     pass 
+
+
 
 
 # print(score_case1)    
@@ -73,18 +101,6 @@ elif Grader_calculate == '2':
     # C - 2.0점
     # C- - 없음
     # F - 0
-
-score_case2 = {
-    'A+' : '4.3',
-    'A'  : '4.0',
-    'A-' : '3.7',
-    'B+' : '3.5',
-    'B'  : '3.0',
-    'B-' : '2.7', 
-    'C+' : '2.5',
-    'C'  : '2.0',
-    'C-' : '1.7',
-    'F'  : '0'  }
 
 # print(score_case2)
 
@@ -107,3 +123,6 @@ def main():pass
 
 if __name__ == '__main__':
     main()
+
+# 수정 해야 할것 
+# 없으면 없다는 문구 출려ㅛㄱ 
