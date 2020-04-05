@@ -72,6 +72,13 @@ class Engine():
 # EpsilonGreedy 알고리즘 이용 
 # Engine을 상속 
 class E_Greedy_Engine(Engine):
+
+    '''
+    현재 행동 후 현재의 가치 = (처음부터 이전 시도까지의 수행양) * 이전번 가치 
+                            + (1/전체 시도 횟수) * 현재 받은 보상
+
+    '''
+
     # 0.1 이 성능이 좋기 때문에 사용 
     def __init__(self, epsilon = 0.1 ):
         # 속성부여 
@@ -82,9 +89,9 @@ class E_Greedy_Engine(Engine):
         # 값을 초기화 -> 머신의 시행 횟수, 머신의 경험(가치)
         self.n = np.zeros(machin_cnt) # machin_cnt : 머신의 개수 
         # 각 경험을 보유해야함 -> 시도, 가치(보상)을 배열에 저장 
-        self.v = np.zeros(machin_cnt) 
+        self.v = np.zeros(machin_cnt)  # 이전 경험 
         
-    def select_machin(self):
+    def select_machin(self): # 엡실론 그리디 알고리즘 핵심
         # 기계를 선택 -> 랜덤하게 ->
         # 탐험과 활용 혹은 탐색과 이용
         # 탐색 
@@ -100,14 +107,25 @@ class E_Greedy_Engine(Engine):
             return np.argmax(self.v)
 
     # 폴리시 업데이트 -> 각 액션마다
-    def policyUpdate(self):
+    def policyUpdate(self, choice_machine, reward):
+    # 어디서 choice_machine, reward를 받는지 확인 할 것 
         # 파라미터를 핸들링
-        pass
+
+        # 에피소드 당 머신의 동작 횟수를 증가
+        self.n[choice_machine] += 1
+
+        # 현 에피소드에 선택한 머신의 경험을 증가 시킨다. 
+        # (n-1)/n*Vt-1 + (1/n)*Rt 
+        n = self.n[choice_machine]
+        # 직전의 가치 
+        v = self.v[choice_machine]
+
+        # 수식을 코드화 
+        self.v[choice_machine] = ((n-1)/n)*v + (1/n) * reward
     
     # 알고리즘 이름 출력
     def Algo_Naming(self):
-        pass
-    
+        return 'ε-greedy 알고리즘 이용'
 
 
 
