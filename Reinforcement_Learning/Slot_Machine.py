@@ -73,12 +73,6 @@ class Engine():
 # Engine을 상속 
 class E_Greedy_Engine(Engine):
 
-    '''
-    현재 행동 후 현재의 가치 = (처음부터 이전 시도까지의 수행양) * 이전번 가치 
-                            + (1/전체 시도 횟수) * 현재 받은 보상
-
-    '''
-
     # 0.1 이 성능이 좋기 때문에 사용 
     def __init__(self, epsilon = 0.1 ):
         # 속성부여 
@@ -119,6 +113,12 @@ class E_Greedy_Engine(Engine):
         n = self.n[choice_machine]
         # 직전의 가치 
         v = self.v[choice_machine]
+
+        '''
+        현재 행동 후 현재의 가치 = (처음부터 이전 시도까지의 수행양) * 이전번 가치(v) 
+                                + (1/전체 시도 횟수) * 현재 받은 보상
+
+        '''
 
         # 수식을 코드화 
         self.v[choice_machine] = ((n-1)/n)*v + (1/n) * reward
