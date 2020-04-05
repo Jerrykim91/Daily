@@ -70,21 +70,34 @@ class Engine():
 """
 
 # EpsilonGreedy 알고리즘 이용 
+# Engine을 상속 
 class E_Greedy_Engine(Engine):
+    # 0.1 이 성능이 좋기 때문에 사용 
     def __init__(self, epsilon = 0.1 ):
         # 속성부여 
         self.epsilon = epsilon  # 탐험하는 확률 
 
     # 초기화 함수 -> 알고리즘에 필요한 값을 초기화
-    def initialize(self):
-        # 값을 초기화 -> 
+    def initialize(self, machin_cnt):
+        # 값을 초기화 -> 머신의 시행 횟수, 머신의 경험(가치)
+        self.n = np.zeros(machin_cnt) # machin_cnt : 머신의 개수 
         # 각 경험을 보유해야함 -> 시도, 가치(보상)을 배열에 저장 
+        self.v = np.zeros(machin_cnt) 
         
-        pass
-
     def select_machin(self):
-        # 기계를 선택
-        pass
+        # 기계를 선택 -> 랜덤하게 ->
+        # 탐험과 활용 혹은 탐색과 이용
+        # 탐색 
+        if self.epsilon > random.random(): # 0.1(self.epsilon)보다 난수 값이 작으면 
+            # 랜덤하게 머신을 선택 : 0 <= ~ < len(self.n) 
+            # => 0 <= x < 3
+            # => 0, 1, 2중에 하나
+            return np.random.randint(0, len(self.n))
+        else:
+            # 이용 
+            # 가치가 높은 팔의 인덱스를 구해서 돌려준다.
+            # -> 팔번호 : 0, 1 ,2 중 하나
+            return np.argmax(self.v)
 
     # 폴리시 업데이트 -> 각 액션마다
     def policyUpdate(self):
@@ -96,9 +109,26 @@ class E_Greedy_Engine(Engine):
         pass
     
 
+
+
+def simulator(simulator_cnt,):
+
+    # times = '횟수'
+    # rewards = '보상'
+
+    # # 시뮬 동작
+    # for tream in range(simulator_cnt):
+
+    pass
+
+
+
 # 시뮬레이터     
 # 머신을 준비 -> 각 확률을 부여 
 Machines = [ Machine(0.3), Machine(0.5), Machine(0.9) ]  # 30%, 50%, 90%
 print(Machines) 
 
-
+# 알고리즘 별로 시뮬레이션을 1000번
+SIMULATION_COUNT = 1000
+# 1번의 시뮬레이션에서는 250의 에피소드가 존재
+EPISODE_COUNT    = 250
