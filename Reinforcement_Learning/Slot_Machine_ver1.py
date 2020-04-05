@@ -51,28 +51,20 @@ class Engine():
 # Engine Class
 - 표준 인터페이스
 - 알고리즘 2개를 사용 예정 
-    - # ε-greedy 알고리즘
-        - 확률 ε(0~1)으로 랜덤하게 행동을 선택한다.
-        - arm을 선택하는 행위
-        - 확률 1-ε는 현재 가치가 가장 높은 팔을 선택한다.
-        - 이런 확률값 중 가장 좋은 성능을 내는 값 0.1인 경우가 많다.
-    
-    - #  UCB1 알고리즘
-        - 절차
-            - 1. 선택한 팔의 시행 횟수 +1
-            - 2. 성공시(보상을 받으면), 선택한 팔의 성공 횟수 +1
-            - 3. 시행 횟수가 0인 팔이 존재하는 경우, 가치를 갱신하지 않는다 => 0으로 나눌수가 없어서
-            - 4. 시행 횟수가 모두 0이상이면, 팔의 가치에 대해서 탐색과 이용에 대한 균형을 잡는다는 대전에 하에, 모든 팔의 가치를 갱신한다.
-
-            - 모든 팔을 한번 이상 사용할때까지는 가치 갱신을 하지 않는다 => 탐색
-            - 모든 팔을 최소 1회 이상 사용해 봤다면, 전체 arm에대 가치 갱신을 시도한다.
-
 """
 
 # EpsilonGreedy 알고리즘 이용 
 # Engine을 상속 
 class E_Greedy_Engine(Engine):
 
+    """
+    # ε-greedy 알고리즘
+
+    - 확률 ε(0~1)으로 랜덤하게 행동을 선택한다.
+    - 머신을 선택하는 행위
+    - 확률 1-ε는 현재 가치가 가장 높은 머신을 선택한다.
+    - 이런 확률값 중 가장 좋은 성능을 내는값이 0.1인 경우가 많다.
+    """
     # 0.1 이 성능이 좋기 때문에 사용 
     def __init__(self, epsilon = 0.1 ):
         # 속성부여 
@@ -101,7 +93,7 @@ class E_Greedy_Engine(Engine):
             return np.argmax(self.v)
 
     # 폴리시 업데이트 -> 각 액션마다
-    def policyUpdate(self, choice_machine, reward):
+    def policyUpdate(self, choice_machine, new_reward):
     # 어디서 choice_machine, reward를 받는지 확인 할 것 
         # 파라미터를 핸들링
 
@@ -121,7 +113,7 @@ class E_Greedy_Engine(Engine):
         '''
 
         # 수식을 코드화 
-        self.v[choice_machine] = ((n-1)/n)*v + (1/n) * reward
+        self.v[choice_machine] = ((n-1)/n)*v + (1/n) * new_reward
     
     # 알고리즘 이름 출력
     def Algo_Naming(self):
@@ -129,24 +121,54 @@ class E_Greedy_Engine(Engine):
 
 
 
-def simulator(simulator_cnt,):
+def simulator(algo, Machines, simulator_cnt, episode_cnt):
 
-    # times = '횟수'
-    # rewards = '보상'
+    times   = np.zeros(simulator_cnt * episode_cnt) #'횟수'
+    rewards = np.zeros_like(times)#'보상'
 
-    # # 시뮬 동작
-    # for tream in range(simulator_cnt):
+    # 시뮬 동작
+    for action in range(simulator_cnt):
+        # 주어진 팔의 개수만큼 자료구조를 생성 -> 0으로 초기화 
+        algo.initialize(len(Machines))
 
-    pass
+        for time in range(episode_cnt):
+            offset         = episode_cnt * action
+            index          = offset + time
+            times[index]   = time + 1 
+            choice_machine = algo.select_machin()
+            new_reward     = Machines[choice_machine].reward()
+            rewards[index] = new_reward
+            # 경험을 업데이트 
+            algo.policyUpdate(choice_machine, new_reward)
+
+    return times, rewards
 
 
 
 # 시뮬레이터     
 # 머신을 준비 -> 각 확률을 부여 
 Machines = [ Machine(0.3), Machine(0.5), Machine(0.9) ]  # 30%, 50%, 90%
-print(Machines) 
-
+# print(Machines) 
+# 1개의 알고리즘 
+# algos = [E_Greedy_Engine()]
 # 알고리즘 별로 시뮬레이션을 1000번
 SIMULATION_COUNT = 1000
 # 1번의 시뮬레이션에서는 250의 에피소드가 존재
 EPISODE_COUNT    = 250
+
+# for algo in algos:
+result = simulator(E_Greedy_Engine(), Machines, SIMULATION_COUNT , EPISODE_COUNT )
+# print(result)
+df      = pd.DataFrame( {'times':result[0], 'rewards':result[1]} )
+print('='*50)
+print(df['rewards'].value_counts(), df['rewards'].count() )
+print('='*50)
+tmp     = df.groupby( 'times' ).mean()
+# 시각화(선형 차트)
+plt.plot( tmp, label=E_Greedy_Engine().Algo_Naming() )
+
+# 그래프 표시
+plt.xlabel('Episode')
+plt.ylabel('Reward Average')
+plt.legend(loc='best')
+plt.show()
