@@ -1,5 +1,6 @@
-# 정규 표현식 
-> 패캠 
+# 정규 표현식 - 패캠
+
+## 정리해야함 
 ---
 
 ### 정규표현식을 숙지하고 커스텀 해보자 
@@ -50,4 +51,43 @@ print(b)
   
 ```py
 import re  # 정규식 패키지 
+
+# search method
+#  - 첫번째로 패턴을 찾으면 match 객체를 반환
+#  - 패턴을 찾지 못하면 None 반환
+
+# 패턴찾기 - 1
+src_search = re.search(r'abc','abcdef')
+print(src_search.start()) # 인덱스 번호 시작 0 
+print(src_search.end()) # 인덱스 끝은 3 =>  3은 포함하지 않는다. 
+idx = 'abcdef'
+print(idx[3]) # d 
+print(src_search.group()) # '그룹('abc')를 불러온다
+print('='*50)
+
+# 패턴 찾기 - 2 
+src_search = re.search(r'abc','123abcdef')
+print(src_search.start()) # 인덱스 번호 시작 3
+print(src_search.end()) # 인덱스 끝은 6 =>  6은 포함하지 않는다. 
+print(src_search.group()) # '그룹('abc')를 불러온다
+
+# \d - 숫자 character와 일치 [0-9]
+src_search = re.search(r'\d\d\d\w', '112abedwf119')
+print(src_search) # match='112a'
+
+# \w - 문자 character와 일치 [a-zA-Z0-9_]
+# .. 은 어떠한 문자든지 2개가 앞에오고 문자를 출력하라 
+src_search = re.search(r'..\w\w', '@#$%ABCDabcd')
+print(src_search) #  match='$%AB'
+
+# Meta-characters (메타 캐릭터)
+# [ ] 문자들의 범위를 나타내기 위해서 사용함
+# - [abck] : a or b or c or k
+# - [abc.^] : a or b or c or . or ^
+# - [a-d]  : -와 함께 사용되면 해당 문자 사이의 범위에 속하는 문자 중 하나
+# - [0-9]  : 모든 숫자
+# - [a-z]  : 모든 소문자
+# - [A-Z]  : 모든 대문자
+# - [a-zA-Z0-9] : 모든 알파벳 문자 및 숫자
+# - [^0-9] : ^가 맨 앞에 사용 되는 경우 해당 문자 패턴이 아닌 것과 매
 ```
