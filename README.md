@@ -8,7 +8,7 @@
 ## Rule
 ---
 
-- ** Commit Rule** (2019.12.18~)
+- **Commit Rule** (2020.10.06~)
 
     - First 
         - When you add anything, Please write down date format like this.      
