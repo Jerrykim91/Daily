@@ -31,6 +31,6 @@
 
 0. Rule creation date : 2019.12.18
 1. Coding_Library move - Private Repository
-2. 자주 사용하는 코드 - 정리본 dir move -> MySourceCode
+2. 자주 사용하는 코드 - 정리본 dir move -> [MySourceCode](https://github.com/Jerrykim91/MySourceCode)
 3. Have kept the rules until now but change Commit Rule -> Rule creation date : 2020.10.06
 
