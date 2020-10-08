@@ -291,7 +291,7 @@ library(googleVis)
 
 <br><br>
 
-
+<!-- 
 ### 4) 데이터 모델링 
 
 <br>
@@ -364,7 +364,7 @@ library(googleVis)
 
 - 회귀분석 및 분류 모델의 트레이닝을 위한 툴이다. 
 
-<br>
+<br> -->
 
 <br>
 
