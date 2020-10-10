@@ -1,6 +1,6 @@
 <br>
 
-#### 0?. R - R 패키지 정리
+#### 번외. R - R 패키지 정리
 
 <br>
 
@@ -375,8 +375,8 @@ library(googleVis)
 ## Reference <br>
 
 - R VScode install  &nbsp; : &nbsp;<https://ark1st.tistory.com/7> <br>
-- R 패키지 참조  &nbsp; : &nbsp;<https://statkclee.github.io/data-science/data-science-library.html><br>
-- 공공데이터  &nbsp; : &nbsp;<https://statkclee.github.io/data-science/data-science-library.html><br>
+- 데이터 과학  &nbsp; : &nbsp;<https://statkclee.github.io/data-science/data-science-library.html><br>
+
 
 <br>
 <br>
