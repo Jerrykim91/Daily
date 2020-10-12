@@ -1,19 +1,9 @@
+# Project
 
-<br>
-
-# KISS
-
-어디 한번 해보자
-
-
-<br>
-<br>  
-
-## Project
+##### JUST DO IT RIGHT NOW
 
 <br>
 <br>
 
 
 
-q1
